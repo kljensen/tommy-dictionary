@@ -1,2 +1,0 @@
-
-\input{build/*.tex}

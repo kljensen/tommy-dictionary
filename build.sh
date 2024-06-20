@@ -1,4 +1,5 @@
-
+#!/bin/sh
+#
 # Create output directory
 mkdir -p output/terms
 
@@ -17,6 +18,8 @@ find output/terms -type f -name "*.tex" | \
     sort | \
     sed 's/^/\\input{/;s/$/}/' > output/terms.md
 
+# Create main.tex
 pandoc -t latex --standalone output/terms.md -o output/main.tex
 
+# Compile main.tex to pdf
 pdflatex -output-directory=output output/main.tex 
